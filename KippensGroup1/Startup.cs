@@ -14,14 +14,15 @@ namespace KippensGroup1
 {
     public class Startup
     {
-        private string uid = "harry"; // for now, change this base of your mysql installation
-        private string pwd = "elbomonkey";
+        private string uid; // go to data files and change your mysql login
+        private string pwd;
         private string connectionString;
 
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
             connectionString ="server=localhost; uid=" + uid + "; pwd=" + pwd + ";";
+            getLoginInfo();
         }
 
         public IConfiguration Configuration { get; }
@@ -64,6 +65,23 @@ namespace KippensGroup1
             app.UseCookiePolicy();
 
             app.UseMvc();
+        }
+
+        public void getLoginInfo()
+        {
+            string filename = "mysqlLogin.txt";
+            string[] lines = System.IO.File.ReadAllLines(".\\Data files\\" + filename);
+            foreach(string line in lines)
+            {
+                if (line[0] == 'u')
+                {
+                    this.uid = line.Remove(0, 4);
+                }
+                else if(line[0] == 'p')
+                {
+                    this.pwd = line.Remove(0, 4);
+                }
+            }
         }
     }
 }

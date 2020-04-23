@@ -1,0 +1,2 @@
+﻿uid=harry
+pwd=elbomonkey
