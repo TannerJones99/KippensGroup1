@@ -14,9 +14,14 @@ namespace KippensGroup1
 {
     public class Startup
     {
+        private string uid = "harry"; // for now, change this base of your mysql installation
+        private string pwd = "elbomonkey";
+        private string connectionString;
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            connectionString ="server=localhost; uid=" + uid + "; pwd=" + pwd + ";";
         }
 
         public IConfiguration Configuration { get; }
@@ -33,6 +38,12 @@ namespace KippensGroup1
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            DBHandler dbHander = new DBHandler(connectionString);
+            if (!dbHander.checkIfDBExist())
+            {
+                dbHander.createDB();
+            }
+            services.AddTransient<MySqlDatabase>(_ => new MySqlDatabase(connectionString));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
