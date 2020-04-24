@@ -10,15 +10,16 @@ namespace KippensGroup1
     public class GetReportModel : PageModel
     {
         [BindProperty]
-        public string Number { get; set; }
+        public string ReportType { get; set; }
 
         public void OnGet()
         {
+            ReportType = "month";
         }
 
         public IActionResult OnPostDate()
         {
-            return Redirect("./Login");
+            return Page();
         }
     }
 }
