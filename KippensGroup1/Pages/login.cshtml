@@ -15,16 +15,24 @@
     <br>
     <br>
     <br>
-    <h2> Login for Donars/Admin: </h2>
-    <label> Username:</label>
-    <input name="Username" type="text" required="required">
+    <h2> Login: </h2>
+    <label asp-for="Error">@Model.Error</label>
     <br>
-    <br>
-    <label> Password:</label>
-    <input name="password" type="text" required="required">
-    <br>
-    <br>
-    <input type="submit" value="Submit">
+    <br />
+    <form asp-page-handler="login" method="post">
+        <label> Username:</label>
+        <input name="user" type="text" required="required">
+        <br>
+        <br>
+        <label> Password:</label>
+        <input name="pass" type="text" required="required">
+        <br />
+        <input type="submit" name="login" value="Submit">
+    </form>
+    <br />
+    <form asp-page-handler="signUp" method="post">
+        <input type="submit" name="signup" value="Sign up" />
+    </form>
 </body>
 </html>
 

@@ -74,5 +74,32 @@ namespace KippensGroup1
 
             db.Close();
         }
+
+        public static string connectionStringBuilder(string user, string pass)
+        {
+            return "server=localhost; database=kippens; uid=" + user + "; pwd=" + pass+";";
+        }
+
+        
+
+
+        // performs query and returns it in a raw form.
+        public MySqlDataReader performQuery(string query)
+        {
+            MySqlConnection db = new MySqlConnection(connectionString);
+            MySqlCommand cmd = new MySqlCommand(query, db);
+            MySqlDataReader reader = null;
+            try
+            {
+                db.Open();
+                reader = cmd.ExecuteReader();
+                db.Close();
+            } catch(Exception e)
+            {
+                return null;
+            }
+
+            return reader;
+        } 
     }
 }

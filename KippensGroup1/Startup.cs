@@ -21,8 +21,9 @@ namespace KippensGroup1
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-            connectionString ="server=localhost; uid=" + uid + "; pwd=" + pwd + ";";
             getLoginInfo();
+            connectionString ="server=localhost; uid=" + uid + "; pwd=" + pwd + ";";
+            
         }
 
         public IConfiguration Configuration { get; }
@@ -44,7 +45,8 @@ namespace KippensGroup1
             {
                 dbHander.createDB();
             }
-            services.AddTransient<MySqlDatabase>(_ => new MySqlDatabase(connectionString));
+            CurrentLogged.logout();
+            services.AddTransient<DBHandler>(_ => new DBHandler(connectionString));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
