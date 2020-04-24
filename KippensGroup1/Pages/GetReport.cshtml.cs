@@ -9,10 +9,11 @@ namespace KippensGroup1
 {
     public class GetReportModel : PageModel
     {
+        [BindProperty]
+        public string Number { get; set; }
 
         public void OnGet()
         {
-            
         }
 
         public IActionResult OnPostDate()
