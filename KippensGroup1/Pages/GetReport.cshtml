@@ -15,11 +15,22 @@
     <br>
     <br>
     <br>
+    <label for="reportType">Choose report type:</label>
+
+    <select id="reportType">
+        <option value="weekly">Weekly</option>
+        <option value="monthly">Monthly</option>
+        <option value="quarterly">Quarterly</option>
+        <option value="anually">Anually</option>
+    </select>
     <br>
+    <br>
+    <br>
+    <br />
     <form asp-page-handler="enterDate" method="post">
         <label for="date">Choose start of report:</label>
         <input name="date" type="date" required="required">
-        <input type="submit" asp-page="./Login" name="enterDate" value="Submit">
+        <input type="submit" asp-page="./ShowReport" name="enterDate" value="Submit">
     </form>
     <br>
     <br>
