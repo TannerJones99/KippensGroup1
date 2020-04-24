@@ -20,6 +20,11 @@ namespace KippensGroup1
             loggedIn = false;
         }
 
+        public static int getRole()
+        {
+            return roleID;
+        }
+
         public static void login(string user, int userid, int roleid)
         {
             username = user;

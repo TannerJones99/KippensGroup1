@@ -71,8 +71,13 @@ namespace KippensGroup1
             db.Open();
             cmd.ExecuteReader();
             db.Close();
+        }
 
-            db.Close();
+        private void insertData(MySqlConnection db)
+        {
+            string roles = "";
+            roles += "INSERT INTO role('name', 'description') VALUES ('general user', 'Basic level for an account')";
+            MySqlCommand cmd = new MySqlCommand("USE kippens; ", db);
         }
 
         public static string connectionStringBuilder(string user, string pass)
