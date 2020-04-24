@@ -7,17 +7,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace KippensGroup1
 {
-    public class GetReportModel : PageModel
+    public class ShowReportModel : PageModel
     {
-
         public void OnGet()
         {
-            
-        }
 
-        public IActionResult OnPostDate()
-        {
-            return Redirect("./Login");
         }
     }
 }
