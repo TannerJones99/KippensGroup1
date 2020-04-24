@@ -4,5 +4,34 @@
     ViewData["Title"] = "GetReport";
 }
 
-<h2>GetReport</h2>
+<html>
+<body>
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <label asp-for="Error2">@Model.Error2</label>
+    <br>
+    <form asp-page-handler="enterDate" method="post">
+        <label for="birthday">Birthday:</label>
+        <input type="date" id="birthday" name="birthday">
+        <input type="submit" name="enterDate" value="Submit">
+    </form>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br />
+
+</body>
+</html>
+
 

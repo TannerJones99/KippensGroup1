@@ -9,9 +9,16 @@ namespace KippensGroup1
 {
     public class GetReportModel : PageModel
     {
+        public string Error2 { get; set; }
+
         public void OnGet()
         {
+            Error2 = "Enter your username and password";
+        }
 
+        public IActionResult OnPostDate()
+        {
+            return Redirect("/Index");
         }
     }
 }
