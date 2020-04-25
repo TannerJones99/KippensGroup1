@@ -17,8 +17,21 @@
 <label asp-for="username">@Model.username</label>
 <br>
 <br>
+<label asp-for="Error">@Model.Error</label>
+<br>
+<br>
 <form asp-page-handler="report" method="post">
     <input type="submit" value="Search Reports" />
+</form>
+<br />
+<br />
+<form asp-page-handler="donation" method="post">
+    <input type="submit" value="Fill out a donation" />
+</form>
+<br />
+<br />
+<form asp-page-handler="transaction" method="post">
+    <input type="submit" value="Fill out a transaction" />
 </form>
 <br />
 <br />
