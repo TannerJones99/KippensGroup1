@@ -12,12 +12,24 @@ namespace KippensGroup1
         [BindProperty]
         public string ReportType { get; set; }
 
+        public void OnPost()
+        {
+
+            ReportType = "month";
+            OnPostDate();
+        }
+
         public void OnGet()
         {
-            ReportType = "month";
+            ReportType = "week";
         }
 
         public IActionResult OnPostDate()
+        {
+            return Page();
+        }
+
+        public IActionResult OnPostSelectDate()
         {
             return Page();
         }

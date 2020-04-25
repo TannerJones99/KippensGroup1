@@ -17,14 +17,18 @@
     <br>
     <label>Choose report type:</label>
 
-    <select name="reportType">
-        <option value="weekly">Weekly</option>
-        <option value="monthly">Monthly</option>
-        <option value="quarterly">Quarterly</option>
-        <option value="anually">Anually</option>
-    </select>
+    <form asp-page-handler="selectDate" method="post">
+        <select name="reportType">
+            <option value="week">Weekly</option>
+            <option value="month">Monthly</option>
+            <option value="quarterly">Quarterly</option>
+            <option value="anually">Anually</option>
+        </select>
+    </form>
     <br>
     <br>
+    <label asp-for="ReportType">@Model.ReportType</label>
+
     <br>
     <br />
     <form asp-page-handler="enterDate" method="post">
