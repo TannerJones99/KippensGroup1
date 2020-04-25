@@ -12,9 +12,15 @@ namespace KippensGroup1
         [BindProperty]
         public DateTime DateInput { get; set; }
 
+        [BindProperty]
+        public string DateType { get; set; }
+
+
         public void OnPost()
         {
-            System.Diagnostics.Debug.WriteLine(DateInput.Month);
+            System.Diagnostics.Debug.WriteLine(DateInput);
+            System.Diagnostics.Debug.WriteLine(DateType);
+
         }
 
         public void OnGet()

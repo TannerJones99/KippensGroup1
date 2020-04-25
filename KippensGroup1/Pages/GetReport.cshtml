@@ -18,36 +18,35 @@
     <br>
     <label>Choose report type:</label>
 
-    <select id="reportType" onchange="dateSelect()">
-        <option value="week">Weekly</option>
-        <option value="month">Monthly</option>
-        <option value="quarter">Quarterly</option>
-        <option value="year">Anually</option>
+    @* <form method="post">*@
 
-    </select>
+    @*  </form>*@
     <br>
     <br>
-
     <br>
     <br />
-    @*<form>
-            <label for="date">Choose start of report:</label>
-            <input type="week" id="dateInput" required="required">
-            <input type="submit" asp-page="./ShowReport" name="enterDate" value="Submit">
-        </form>*@
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
     <form method="post">
+        <select name="dateType">
+            <option value="weekly">Weekly</option>
+            <option value="monthly">Monthly</option>
+            <option value="quarterly">Quarterly</option>
+            <option value="annualy">Anually</option>
+        </select>
+        <br />
+        <br />
         <label for="date">Choose start of report:</label>
         <input type="date" name="dateInput">
         <input type="submit">
     </form>
     <br>
-    <input type="number" min="1900" max="2099" step="1" value="2016" /> <!--year inout-->
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <br>
+    <input type="number" min="1900" max="2019" step="1" value="2019" /> <!--year inout-->
 
     <br />
     <script>
