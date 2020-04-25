@@ -23,8 +23,15 @@ namespace KippensGroup1
 
         public List<Donation> GetDonations(string start, string end)
         {
-            var sql = "SELECT * FROM donation WHERE time BETWEEN '" + start + "' AND '"+ end + "';";
+            var sql = "SELECT * FROM donation WHERE time BETWEEN '" + start + "' AND '"+ end + "' ORDER BY time;";
             var result = this._conn.Query<Donation>(sql).ToList();
+            return result;
+        }
+
+        public List<Transaction> GetTransactions(string start, string end)
+        {
+            var sql = "SELECT * FROM transactions WHERE time BETWEEN '" + start + "' AND '" + end + "' ORDER BY time;";
+            var result = this._conn.Query<Transaction>(sql).ToList();
             return result;
         }
 

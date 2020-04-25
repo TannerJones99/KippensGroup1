@@ -19,19 +19,11 @@ namespace KippensGroup1
         [BindProperty]
         public int DateType { get; set; }
 
-
-        public void OnPost()
-        {
-            //System.Diagnostics.Debug.WriteLine(StartDate);
-            //System.Diagnostics.Debug.WriteLine(EndDate);
-        }
-
         public void OnGet()
         {
          
 
         }
-
 
         public IActionResult OnPostSubmit()
         {

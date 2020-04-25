@@ -3,7 +3,6 @@
 @{
     ViewData["Title"] = "ShowReport";
 
-
 }
 
 <html>
@@ -49,14 +48,14 @@
     <br>
     <br>
     <br />
-    <h1>Donations Report</h1>
+    <h1 style="text-align:center">Donations Report</h1>
     <table align="center" id="tbl" border="1">
         <tr>
             <th width="100px">Name</th>
             <th width="100px">Description</th>
             <th width="100px">UserID</th>
             <th width="100px">DonationID</th>
-            <th width="100px">Time</th>
+            <th width="100px">Date Donated</th>
             <th width="100px">RoleID</th>
             <th width="100px">Quantity</th>
         </tr>
@@ -84,39 +83,40 @@
     </table>
     <br />
     <br />
+    <br />
+    <h1 style="text-align:center">Transactions Report</h1>
+    <table id="tbl" align="center" border="1">
+        <tr>
+            <th width="100px">TransactionID</th>
+            <th width="100px">Date</th>
+            <th width="100px">RoleID</th>
+            <th width="100px">Name</th>
+            <th width="100px">Description</th>
+            <th width="100px">UserID</th>
+            <th width="100px">Quantity</th>
+        </tr>
 
-    <table align="center" border="1">
-            <tr>
-                <th width="100px">UserID</th>
-                <th width="100px">Name</th>
-                <th width="100px">Username</th>
-                <th width="100px">email</th>
-                <th width="100px">password</th>
-                <th width="100px">Number</th>
-                <th width="100px">RoleID</th>
-            </tr>
+        @{
+            for (int i = 0; i < Model.Transactions.Count; i++)
+            {
+                <tr>
+                    <td>@Model.Transactions.ElementAt(i).transactionID</td>
 
-            @{
-                for (int i = 0; i < Model.Users.Count; i++)
-                {
-                    <tr>
-                        <td>@Model.Users.ElementAt(i).userID</td>
+                    <td>@Model.Transactions.ElementAt(i).time</td>
 
-                        <td>@Model.Users.ElementAt(i).name</td>
+                    <td>@Model.Transactions.ElementAt(i).roleID</td>
 
-                        <td>@Model.Users.ElementAt(i).username</td>
+                    <td>@Model.Transactions.ElementAt(i).name</td>
 
-                        <td>@Model.Users.ElementAt(i).email</td>
+                    <td>@Model.Transactions.ElementAt(i).description</td>
 
-                        <td>@Model.Users.ElementAt(i).password</td>
+                    <td>@Model.Transactions.ElementAt(i).userID</td>
 
-                        <td>@Model.Users.ElementAt(i).number</td>
-
-                        <td>@Model.Users.ElementAt(i).roleID</td>
-                    </tr>
-                }
+                    <td>@Model.Transactions.ElementAt(i).QUANTITY</td>
+                </tr>
             }
-        </table>
+        }
+    </table>
 </body>
 </html>
 

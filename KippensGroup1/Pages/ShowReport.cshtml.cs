@@ -17,6 +17,7 @@ namespace KippensGroup1
 
         public List<User> Users { get; set; } // List of all records in user table
 
+        public List<Transaction> Transactions { get; set; } // List of all records in user table
 
         public void OnGet()
         {
@@ -28,6 +29,7 @@ namespace KippensGroup1
         {
             var donAccess = new DatabaseAccess();
             Donations = donAccess.GetDonations(start, end);
+            Transactions = donAccess.GetTransactions(start, end);
             Users = donAccess.GetUsers();
             return Page();
         }
