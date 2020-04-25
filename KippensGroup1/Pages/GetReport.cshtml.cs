@@ -9,8 +9,7 @@ namespace KippensGroup1
 {
     public class GetReportModel : PageModel
     {
-        //[BindProperty]
-        //public string ReportType { get; set; }
+        public DateTime Date { get; set; }
 
         public void OnPost()
         {
