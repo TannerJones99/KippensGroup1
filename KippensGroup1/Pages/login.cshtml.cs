@@ -44,9 +44,10 @@ namespace KippensGroup1.Pages
                      
         }
 
-        public IActionResult onPostSignUp()
+        public IActionResult OnPostSignup()
         {
-            return Redirect("/Signup");
+            Error = "test";
+            return Redirect("Signup");
         }
     }
 }

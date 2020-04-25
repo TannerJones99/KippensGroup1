@@ -22,7 +22,7 @@ namespace KippensGroup1.Pages
         }
 
 
-        public IActionResult onPostSignup(string name, string email, string pass, string number)
+        public IActionResult OnPostSignup(string name, string email, string pass, string number)
         {
             
             if (!emailValidation(email))
@@ -30,7 +30,7 @@ namespace KippensGroup1.Pages
                 return Page();
             }
 
-            createUsername(name);
+            createUsername(email);
             getLoginInfo();
             DBHandler db = new DBHandler(DBHandler.connectionStringBuilder(uid, pwd));
             string query = "INSERT INTO user(name, username, email, password, roleID) VALUES ('"+name+"', '"+username+"', '"+email+"', '"+pass+"', 1);";
@@ -46,31 +46,34 @@ namespace KippensGroup1.Pages
             Error = "Not valid email";
             if(email == null)
             {
+                Error = "Email is null";
                 return false;
             }
 
            bool validEmailCheck = false;
            for(int i = 0; i < email.Length; i++)
-            {
+           {
                 if(email[i] == '@')
                 {
                     validEmailCheck = true;
+                    Error = "The Valid email";
                 }
-            }
+           }
 
             if (!validEmailCheck)
             {
                 return false;
             }
 
-            string query = "SELECT email FROM user WHERE email='"+email+";";
-            DBHandler db = new DBHandler(DBHandler.connectionStringBuilder("harry", "elbomoneky"));
+            string query = "SELECT email FROM user WHERE email='"+email+"';";
+            DBHandler db = new DBHandler(DBHandler.connectionStringBuilder("harry", "elbomonkey"));
             MySqlDataReader reader;
             try
             {
                 reader = db.performQuery(query);
-                if (!reader.HasRows)
+                if (reader.HasRows)
                 {
+                    Error = "Username already in use";
                     return false;
                 }
             }
