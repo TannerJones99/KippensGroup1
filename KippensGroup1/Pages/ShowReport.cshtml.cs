@@ -14,7 +14,12 @@ namespace KippensGroup1
 
         public void OnGet()
         {
-            GetDataFromDB();
+            var service = new DonationAccess();
+            var result = service.GetDept();
+            foreach (var item in result)
+            {
+                System.Diagnostics.Debug.WriteLine(item.time);
+            }
         }
 
         public void GetDataFromDB()
@@ -39,7 +44,7 @@ namespace KippensGroup1
                 {
                     while (reader.Read())
                     {
-                        don.Name = reader.GetValue("Name");
+                        //don.Name = reader.GetValue("Name");
                     }
                 }
 
