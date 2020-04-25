@@ -23,6 +23,7 @@ namespace KippensGroup1
 
         }
 
+        // when user clicks submit button it redirects to ShowReport pages passing startDate and endDate
         public IActionResult OnPostSubmit()
         { 
             return RedirectToPage("ShowReport", "page", new { start = StartDate, end = EndDate });
