@@ -22,15 +22,15 @@ namespace KippensGroup1
         public void OnGet()
         {
 
-            
         }
 
+        // populates all lists with data from database
         public IActionResult OnGetPage(string start, string end)
         {
             var donAccess = new DatabaseAccess();
             Donations = donAccess.GetDonations(start, end);
             Transactions = donAccess.GetTransactions(start, end);
-            Volunteers = donAccess.GetVolunteers(start, end);
+            Volunteers = donAccess.GetVolunteers();
             return Page();
         }
 

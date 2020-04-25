@@ -16,8 +16,6 @@ namespace KippensGroup1
         [BindProperty]
         public string EndDate { get; set; }
 
-        [BindProperty]
-        public int DateType { get; set; }
 
         public void OnGet()
         {
@@ -26,8 +24,7 @@ namespace KippensGroup1
         }
 
         public IActionResult OnPostSubmit()
-        {
-            
+        { 
             return RedirectToPage("ShowReport", "page", new { start = StartDate, end = EndDate });
         }
 
