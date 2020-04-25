@@ -22,8 +22,9 @@ namespace KippensGroup1
 
         public void OnPost()
         {
-            System.Diagnostics.Debug.WriteLine(StartDate);
-            System.Diagnostics.Debug.WriteLine(EndDate);
+            //System.Diagnostics.Debug.WriteLine(StartDate);
+            //System.Diagnostics.Debug.WriteLine(EndDate);
+            //RedirectToPage("ShowReport", StartDate);
 
         }
 
@@ -34,10 +35,13 @@ namespace KippensGroup1
         }
 
 
-        //public IActionResult OnPostSubmit()
-        //{
-        //    return Redirect("ShowReport");
-        //}
+        public IActionResult OnPostSubmit()
+        {
+            System.Diagnostics.Debug.WriteLine(StartDate);
+            System.Diagnostics.Debug.WriteLine(EndDate);
+            ShowReportModel srm = new ShowReportModel();
+            return srm.Page();
+        }
 
     }
 }
