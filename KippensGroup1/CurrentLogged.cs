@@ -56,13 +56,17 @@ namespace KippensGroup1
             return reader.GetString("password");
         }
 
+        public static int getID()
+        {
+            return userID;
+        }
+
         private static string getLoginInfo()
         {
             string filename = "mysqlLogin.txt";
             string[] lines = System.IO.File.ReadAllLines(".\\Data files\\" + filename);
             string uid =""; string pwd ="";
-            foreach (string line in lines)
-           
+            foreach (string line in lines)           
             {
                 if (line[0] == 'u')
                 {

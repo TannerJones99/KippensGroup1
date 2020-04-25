@@ -30,9 +30,32 @@ namespace KippensGroup1.Pages
             return Redirect("Index");
         }
 
+        public IActionResult OnPostDonation()
+        {
+            username = CurrentLogged.getUsername();
+            if (CurrentLogged.getRole() != 2 || CurrentLogged.getRole() != 3)
+            {
+                Error = "You are not authorized to fill out a donation";
+                return Page();
+            }
+            return Redirect("Donation");
+        }
+
+        public IActionResult OnPostTransaction()
+        {
+            username = CurrentLogged.getUsername();
+            if (CurrentLogged.getRole() != 2 || CurrentLogged.getRole() != 3)
+            {
+                Error = "You are not authorized to fill out a transaction";
+                return Page();
+            }
+            return Redirect("Transactions");
+        }
+
         public IActionResult OnPostReport()
         {
-            if(CurrentLogged.getRole() != 2 || CurrentLogged.getRole() != 3)
+            username = CurrentLogged.getUsername();
+            if (CurrentLogged.getRole() != 2 || CurrentLogged.getRole() != 3)
             {
                 Error = "You are not authorized to search for reports";
                 return Page();
