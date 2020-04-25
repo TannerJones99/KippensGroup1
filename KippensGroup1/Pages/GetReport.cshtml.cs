@@ -9,14 +9,12 @@ namespace KippensGroup1
 {
     public class GetReportModel : PageModel
     {
-        [BindProperty]
+        //[BindProperty]
         public string ReportType { get; set; }
 
         public void OnPost()
         {
 
-            ReportType = "month";
-            OnPostDate();
         }
 
         public void OnGet()
@@ -29,9 +27,5 @@ namespace KippensGroup1
             return Page();
         }
 
-        public IActionResult OnPostSelectDate()
-        {
-            return Page();
-        }
     }
 }
