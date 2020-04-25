@@ -9,9 +9,10 @@ namespace KippensGroup1.Pages
 {
     public class IndexModel : PageModel
     {
+        public string logged { get; set; }
         public void OnGet()
         {
-
+            logged = CurrentLogged.isLoggedIn().ToString();
         }
     }
 }

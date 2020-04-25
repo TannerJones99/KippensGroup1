@@ -1,0 +1,28 @@
+﻿@page
+@model KippensGroup1.Pages.AccountModel
+@{
+    ViewData["Title"] = "Account";
+}
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h2>Account</h2>
+<br>
+<br>
+<label asp-for="username">@Model.username</label>
+<br>
+<br>
+<form asp-page-handler="report" method="post">
+    <input type="submit" value="Search Reports" />
+</form>
+<br />
+<br />
+<form asp-page-handler="logout" method="post">
+    <input type="submit" value="Logout" />
+</form>
+

@@ -12,9 +12,14 @@ namespace KippensGroup1.Pages
     {
         public string Error { get; set; }
 
-        public void OnGet()
+        public IActionResult OnGet()
         {
+            if (CurrentLogged.isLoggedIn())
+            {
+                return Redirect("Account");
+            }
             Error = "Enter your username and password";
+            return null;
         }
 
         public IActionResult OnPostLogin(string user, string pass)
@@ -22,7 +27,6 @@ namespace KippensGroup1.Pages
             string query = "SELECT username, password, userID, roleID FROM user WHERE username='"+user+"' AND password='"+pass+"';";
             DBHandler db = new DBHandler(DBHandler.connectionStringBuilder("harry", "elbomonkey")); // change to username and password later
             MySqlDataReader reader;
-            MySqlConnection connector = null;
             try
             {
                 reader = db.performQuery(query);
@@ -41,7 +45,7 @@ namespace KippensGroup1.Pages
                 else
                 {
                     reader.Read();
-                    CurrentLogged.login(reader.GetString("username"), reader.GetInt32("userID"), reader.GetInt32("roleID"));                  
+                    CurrentLogged.login(reader.GetString("username"), reader.GetInt32("userID"), reader.GetInt32("roleID"));
                     return Redirect("Index");
                 }
             }   
