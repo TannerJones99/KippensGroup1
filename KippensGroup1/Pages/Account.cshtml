@@ -17,6 +17,9 @@
 <label asp-for="username">@Model.username</label>
 <br>
 <br>
+<label asp-for="Error">@Model.Error</label>
+<br>
+<br>
 <form asp-page-handler="report" method="post">
     <input type="submit" value="Search Reports" />
 </form>

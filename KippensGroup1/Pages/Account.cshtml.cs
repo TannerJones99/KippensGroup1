@@ -10,6 +10,7 @@ namespace KippensGroup1.Pages
     public class AccountModel : PageModel
     {
         public string username { get; set; }
+        public string Error { get; set; }
 
         public IActionResult OnGet()
         {
@@ -18,6 +19,7 @@ namespace KippensGroup1.Pages
                 return Redirect("Login");
             }
             username = CurrentLogged.getUsername();
+            Error = "Select an option below";
 
             return Page();
         }
@@ -30,6 +32,11 @@ namespace KippensGroup1.Pages
 
         public IActionResult OnPostReport()
         {
+            if(CurrentLogged.getRole() != 2 || CurrentLogged.getRole() != 3)
+            {
+                Error = "You are not authorized to search for reports";
+                return Page();
+            }
             return Redirect("GetReport");
         }
     }
