@@ -13,8 +13,6 @@ namespace KippensGroup1
     public class DatabaseAccess
     {
         private readonly MySqlConnection _conn;
-        private DateTime start;
-        private DateTime end;
 
         private string _connectionString = DBHandler.connectionStringBuilder("harry", "elbomonkey");
         public DatabaseAccess()
@@ -23,12 +21,7 @@ namespace KippensGroup1
             _conn = new MySqlConnection(_connectionString);
         }
 
-        public DatabaseAccess(DateTime start, DateTime end)
-        {
-            this.start = start;
-            this.end = end;
-        }
-        public List<Donation> GetDonations(DateTime start, DateTime end)
+        public List<Donation> GetDonations(string start, string end)
         {
             var sql = "SELECT * FROM donation WHERE time BETWEEN '" + start + "' AND '"+ end + "';";
             var result = this._conn.Query<Donation>(sql).ToList();

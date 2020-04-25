@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using KippensGroup1.Database_Tables_Classes;
@@ -19,12 +20,16 @@ namespace KippensGroup1
 
         public void OnGet()
         {
-            GetReportModel grm = new GetReportModel();
-            var donAccess = new DatabaseAccess();
-            System.Diagnostics.Debug.WriteLine(grm.StartDate + "----------");
-            Donations = donAccess.GetDonations(grm.StartDate, grm.EndDate);
-            Users = donAccess.GetUsers();
+
             
+        }
+
+        public IActionResult OnGetPage(string start, string end)
+        {
+            var donAccess = new DatabaseAccess();
+            Donations = donAccess.GetDonations(start, end);
+            Users = donAccess.GetUsers();
+            return Page();
         }
 
     }
