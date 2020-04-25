@@ -19,6 +19,7 @@ namespace KippensGroup1
 
         public void GetDataFromDB()
         {
+            Donation don = new Donation();
             string query = "SELECT * FROM donation";
             DBHandler db = new DBHandler(DBHandler.connectionStringBuilder("harry", "elbomonkey")); // change to username and password later
             MySqlDataReader reader;
@@ -26,7 +27,21 @@ namespace KippensGroup1
             {
                 reader = db.performQuery(query);
 
-                Description = reader.GetString("description");
+                if (reader == null )
+                {
+                    System.Diagnostics.Debug.WriteLine("Could not Query. reader is null");
+                }
+                else if (!reader.HasRows) {
+
+                    System.Diagnostics.Debug.WriteLine("Error: Somethig else");
+                }
+                else
+                {
+                    while (reader.Read())
+                    {
+                        don.Name = reader.GetValue("Name");
+                    }
+                }
 
             }
             catch (Exception e)
