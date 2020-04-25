@@ -35,6 +35,13 @@ namespace KippensGroup1
             return result;
         }
 
+        public List<Volunteer> GetVolunteers(string start, string end)
+        {
+            var sql = "SELECT * FROM volunteer WHERE time BETWEEN '" + start + "' AND '" + end + "' ORDER BY time;";
+            var result = this._conn.Query<Volunteer>(sql).ToList();
+            return result;
+        }
+
         public List<User> GetUsers()
         {
             var sql = "SELECT * FROM user";
