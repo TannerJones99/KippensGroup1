@@ -10,7 +10,7 @@ namespace KippensGroup1
     public class GetReportModel : PageModel
     {
         //[BindProperty]
-        public string ReportType { get; set; }
+        //public string ReportType { get; set; }
 
         public void OnPost()
         {
@@ -19,7 +19,7 @@ namespace KippensGroup1
 
         public void OnGet()
         {
-            ReportType = "week";
+            //ReportType = "week";
         }
 
         public IActionResult OnPostDate()

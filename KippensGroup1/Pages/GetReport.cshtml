@@ -17,34 +17,24 @@
     <br>
     <br>
     <label>Choose report type:</label>
-    <script>
-        function dateSelect() {
-            var dt = document.getElementById("reportType");
-            var dateType = dt.options[dt.selectedIndex].text;
 
-            var inputDate = document.getElementById("dateInput");
-            inputDate.type = dateType;
-        }
-    </script>
     <select id="reportType" onchange="dateSelect()">
         <option value="week">Weekly</option>
         <option value="month">Monthly</option>
-        <option value="quarterly">Quarterly</option>
-        <option value="anually">Anually</option>
+        <option value="quarter">Quarterly</option>
+        <option value="year">Anually</option>
     </select>
     <br>
     <br>
-    <label asp-for="ReportType">@Model.ReportType</label>
 
     <br>
     <br />
     @*<form asp-page-handler="enterDate" method="post">*@
     <form>
-        
+
         <label for="date">Choose start of report:</label>
-        <input id="dateInput" type="date" required="required">
-        <input type="submit" name="enterDate" value="Submit">
-        @*<input type="submit" asp-page="./ShowReport" name="enterDate" value="Submit">*@
+        <input  type="week" id="dateInput" required="required">
+        <input type="submit" asp-page="./ShowReport" name="enterDate" value="Submit">
     </form>
     <br>
     <br>
@@ -54,8 +44,15 @@
     <br>
     <br>
     <br />
-
+        <script>
+        function dateSelect() {
+            var dt = document.getElementById("reportType");
+            var dateType = dt.options[dt.selectedIndex].value;
+            document.getElementById("dateInput").type = dateType;
+        }
+    </script>
 </body>
+
 </html>
 
 
