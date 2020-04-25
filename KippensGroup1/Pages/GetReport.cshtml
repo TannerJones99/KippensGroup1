@@ -31,10 +31,10 @@
     <br>
     <br />
     @*<form>
-        <label for="date">Choose start of report:</label>
-        <input type="week" id="dateInput" required="required">
-        <input type="submit" asp-page="./ShowReport" name="enterDate" value="Submit">
-    </form>*@
+            <label for="date">Choose start of report:</label>
+            <input type="week" id="dateInput" required="required">
+            <input type="submit" asp-page="./ShowReport" name="enterDate" value="Submit">
+        </form>*@
     <br>
     <br>
     <br>
@@ -47,6 +47,8 @@
         <input type="submit">
     </form>
     <br>
+    <input type="number" min="1900" max="2099" step="1" value="2016" /> <!--year inout-->
+
     <br />
     <script>
         function dateSelect() {

@@ -14,17 +14,12 @@ namespace KippensGroup1
 
         public void OnPost()
         {
-            System.Diagnostics.Debug.WriteLine(DateInput);
+            System.Diagnostics.Debug.WriteLine(DateInput.Month);
         }
 
         public void OnGet()
         {
-            //ReportType = "week";
-        }
-
-        public IActionResult OnPostDate()
-        {
-            return Page();
+            
         }
 
     }
