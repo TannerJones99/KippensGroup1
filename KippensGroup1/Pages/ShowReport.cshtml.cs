@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -10,16 +11,14 @@ namespace KippensGroup1
 {
     public class ShowReportModel : PageModel
     {
-        public string Description { get; set; }
+        public List<Donation> Donations { get; set; }
 
         public void OnGet()
         {
-            var service = new DonationAccess();
-            var result = service.GetDept();
-            foreach (var item in result)
-            {
-                System.Diagnostics.Debug.WriteLine(item.time);
-            }
+            var donAccess = new DonationAccess();
+            Donations = donAccess.GetDonations();
+            
+            
         }
 
         public void GetDataFromDB()

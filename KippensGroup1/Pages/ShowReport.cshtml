@@ -2,6 +2,11 @@
 @model KippensGroup1.ShowReportModel
 @{
     ViewData["Title"] = "ShowReport";
+
+    DonationAccess da = new DonationAccess();
+    List<Donation> list = da.GetDonations();
+    var x = 0;
+    
 }
 
     <html>
@@ -15,88 +20,30 @@
         <br>
         <br>
         <br />
-        <h1>Person Report</h1>
-        <label asp-for="Description">@Model.Description</label>
+        <table border="1">
+            <tr>
+                <th width="100px">Name</th>
+                <th width="100px">Value</th>
+            </tr>
+            <tr>
+                <td>Day</td>
+                <td>@DateTime.Now.Day</td>
+            </tr>
+            <tr>
+                <td>Hour</td>
+                <td>@DateTime.Now.Hour</td>
+            </tr>
+            <tr>
+                <td>Minute</td>
+                <td>@DateTime.Now.Minute</td>
+            </tr>
+            <tr>
+                <td>Second</td>
+                <td>@DateTime.Now.Second</td>
+            </tr>
+            </td>
+        </table>
 
-        @*<table id='test'>
-            <tr>
-                <th>ID</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Email</th>
-                <th>Phone Number</th>
-            </tr>
-            <tr>
-                <td>18</td>
-                <td>Twin</td>
-                <td>Girsky</td>
-                <td>jgirsky@my.apsu.edu</td>
-                <td>931-249-8131</td>
-            </tr>
-            <tr>
-                <td>19</td>
-                <td>Grayson</td>
-                <td>Girsky</td>
-                <td>ggirsky@gmail.com</td>
-                <td>931-987-2343</td>
-            </tr>
-            <tr>
-                <td>20</td>
-                <td>Greg</td>
-                <td>Smith</td>
-                <td>smith@gmail.com</td>
-                <td>931-234-9873</td>
-            </tr>
-            <tr>
-                <td>1002</td>
-                <td>Jeff</td>
-                <td>Green</td>
-                <td>mgreen23@gmail.com</td>
-                <td>931-456-4442</td>
-            </tr>
-            <tr>
-                <td>1003</td>
-                <td>Steven</td>
-                <td>Girsky</td>
-                <td>scgirsky@aol.com</td>
-                <td>931-624-7700</td>
-            </tr>
-            <tr>
-                <td>2002</td>
-                <td>Bella</td>
-                <td>Smith</td>
-                <td>bsmith@apsu.edu</td>
-                <td>342-4556-6766</td>
-            </tr>
-            <tr>
-                <td>2003</td>
-                <td>Timmy</td>
-                <td>Fred</td>
-                <td>fred@gmail.com</td>
-                <td>931-234-2333</td>
-            </tr>
-            <tr>
-                <td>2004</td>
-                <td>Jimmy</td>
-                <td>Harold</td>
-                <td>hflowers@gmail.com</td>
-                <td>931-245-0000</td>
-            </tr>
-            <tr>
-                <td>2005</td>
-                <td>Christian</td>
-                <td>Wallace</td>
-                <td>cwallace31@apsu.edu</td>
-                <td>931-240-8132</td>
-            </tr>
-            <tr>
-                <td>2006</td>
-                <td>Greg</td>
-                <td>Resse</td>
-                <td>greese@yahoo.com</td>
-                <td>342-222-3432</td>
-            </tr>
-        </table>*@
     </body>
     </html>
 

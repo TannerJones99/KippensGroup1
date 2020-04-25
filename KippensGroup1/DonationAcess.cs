@@ -19,7 +19,7 @@ namespace KippensGroup1
 
             _conn = new MySqlConnection(_connectionString);
         }
-        public IEnumerable<Donation> GetDept()
+        public List<Donation> GetDonations()
         {
             var sql = "SELECT * FROM donation";
             var result = this._conn.Query<Donation>(sql).ToList();
