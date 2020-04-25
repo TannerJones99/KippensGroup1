@@ -14,33 +14,25 @@ namespace KippensGroup1
 
         public void OnGet()
         {
-            execSqlRead();
-            
-            
+            GetDataFromDB();
         }
 
-        public void execSqlRead()
+        public void GetDataFromDB()
         {
-            MySqlConnection db = new MySqlConnection(DBHandler.connectionStringBuilder("harry", "elbomonkey"));
-            string query = "SELECT * FROM transactions";
-            MySqlCommand cmd = new MySqlCommand();
-            cmd.CommandText = query;
-            MySqlDataReader myReader;
-            myReader = cmd.ExecuteReader();  //stop here
+            string query = "SELECT * FROM donation";
+            DBHandler db = new DBHandler(DBHandler.connectionStringBuilder("harry", "elbomonkey")); // change to username and password later
+            MySqlDataReader reader;
             try
             {
-                while (myReader.Read())
-                {
-                    Console.WriteLine(myReader.GetString(0));
-                }
-            }
-            finally
-            {
-                Console.WriteLine("Yolo");
-                myReader.Close();
-            }
+                reader = db.performQuery(query);
 
-            //return myReader;
+                Description = reader.GetString("description");
+
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine("Error: Connection to database");
+            }
         }
 
     }
