@@ -71,14 +71,55 @@ namespace KippensGroup1
             db.Open();
             cmd.ExecuteReader();
             db.Close();
+
+            insertData(db);
         }
 
         private void insertData(MySqlConnection db)
         {
             string roles = "";
-            roles += "INSERT INTO role('name', 'description') VALUES ('general user', 'Basic level for an account')";
-            MySqlCommand cmd = new MySqlCommand("USE kippens; ", db);
+            roles += "INSERT INTO role(Name, description) VALUES ('general user', 'Basic level for an account');";
+            roles += "INSERT INTO role(Name, description) VALUES ('Food Pantry', 'Level for the food pantry workers and volenteers');";
+            roles += "INSERT INTO role(Name, description) VALUES ('Clothing Closet', 'Level for the clothing closet workers and volenteers');";
+            MySqlCommand cmd = new MySqlCommand("USE kippens; " + roles, db);
+            db.Open();
+            cmd.ExecuteReader();
+            db.Close();
+
+            string admins = "";
+            admins += "INSERT INTO user(name, username, email, password, roleID) VALUES ('closet admin', 'cadmin', 'cadmin@kippens.org', 'admin', 3);";
+            admins += "INSERT INTO user(name, username, email, password, roleID) VALUES ('pantry admin', 'padmin', 'padmin@kippens.org', 'admin', 2);";
+            admins += "INSERT INTO user(name, username, email, password, roleID) VALUES ('test user', 'test', 'test@kippens.org', 'test', 1);";
+            cmd = new MySqlCommand("USE kippens; " + admins, db);
+            db.Open();
+            cmd.ExecuteReader();
+            db.Close();
+
+            string trans = "";
+            trans += "INSERT INTO transactions(time, roleID, name, description, userID, QUANTITY) VALUES ('2018-04-24', '3', 'first', 'first transaction', '1', '10');";
+            trans += "INSERT INTO transactions(time, roleID, name, description, userID, QUANTITY) VALUES ('2020-04-24', '3', 'second', 'second transaction', '1', '20');";
+            trans += "INSERT INTO transactions(time, roleID, name, description, userID, QUANTITY) VALUES ('2020-03-01', '2', 'third', 'third transaction', '2', '30');";
+            trans += "INSERT INTO transactions(time, roleID, name, description, userID, QUANTITY) VALUES ('2000-05-19', '2', 'fourth', 'four transaction', '2', '40');";
+            trans += "INSERT INTO transactions(time, roleID, name, description, userID, QUANTITY) VALUES ('1997-09-11', '2', 'fifth', 'five transaction', '2', '50');";
+
+            cmd = new MySqlCommand("USE kippens; " + trans, db);
+            db.Open();
+            cmd.ExecuteReader();
+            db.Close();
+
+            string don = "";
+            don += "INSERT INTO donation(time, roleID, name, description, userID, QUANTITY) VALUES ('2018-04-24', '3', 'first', 'first donation', '1', '10');";
+            don += "INSERT INTO donation(time, roleID, name, description, userID, QUANTITY) VALUES ('2020-04-24', '3', 'second', 'second donation', '1', '20');";
+            don += "INSERT INTO donation(time, roleID, name, description, userID, QUANTITY) VALUES ('2020-03-01', '2', 'third', 'third donation', '2', '30');";
+            don += "INSERT INTO donation(time, roleID, name, description, userID, QUANTITY) VALUES ('2000-05-19', '2', 'fourth', 'four donation', '2', '40');";
+            don += "INSERT INTO donation(time, roleID, name, description, userID, QUANTITY) VALUES ('1997-09-11', '2', 'fifth', 'five donation', '2', '50');";
+
+            cmd = new MySqlCommand("USE kippens; " + don, db);
+            db.Open();
+            cmd.ExecuteReader();
+            db.Close();
         }
+
 
         public static string connectionStringBuilder(string user, string pass)
         {
