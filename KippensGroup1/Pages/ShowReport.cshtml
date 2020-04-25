@@ -50,6 +50,41 @@
             }
         }
     </table>
+    <br />
+    <br />
+
+    <table align="center" border="1">
+        <tr>
+            <th width="100px">UserID</th>
+            <th width="100px">Name</th>
+            <th width="100px">Username</th>
+            <th width="100px">email</th>
+            <th width="100px">password</th>
+            <th width="100px">Number</th>
+            <th width="100px">RoleID</th>
+        </tr>
+
+        @{
+            for (int i = 0; i < Model.Users.Count; i++)
+            {
+                <tr>
+                    <td>@Model.Users.ElementAt(i).userID</td>
+
+                    <td>@Model.Users.ElementAt(i).name</td>
+
+                    <td>@Model.Users.ElementAt(i).username</td>
+
+                    <td>@Model.Users.ElementAt(i).email</td>
+
+                    <td>@Model.Users.ElementAt(i).password</td>
+
+                    <td>@Model.Users.ElementAt(i).number</td>
+
+                    <td>@Model.Users.ElementAt(i).roleID</td>
+                </tr>
+            }
+        }
+    </table>
 </body>
 </html>
 

@@ -23,26 +23,32 @@
         <option value="month">Monthly</option>
         <option value="quarter">Quarterly</option>
         <option value="year">Anually</option>
+
     </select>
     <br>
     <br>
 
     <br>
     <br />
-    <form>
+    @*<form>
         <label for="date">Choose start of report:</label>
-        <input  type="week" id="dateInput" required="required">
+        <input type="week" id="dateInput" required="required">
         <input type="submit" asp-page="./ShowReport" name="enterDate" value="Submit">
+    </form>*@
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <form method="post">
+        <label for="date">Choose start of report:</label>
+        <input type="date" name="dateInput">
+        <input type="submit">
     </form>
     <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
     <br />
-        <script>
+    <script>
         function dateSelect() {
             var dt = document.getElementById("reportType");
             var dateType = dt.options[dt.selectedIndex].value;

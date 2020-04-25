@@ -9,11 +9,12 @@ namespace KippensGroup1
 {
     public class GetReportModel : PageModel
     {
-        public DateTime Date { get; set; }
+        [BindProperty]
+        public DateTime DateInput { get; set; }
 
         public void OnPost()
         {
-
+            System.Diagnostics.Debug.WriteLine(DateInput);
         }
 
         public void OnGet()
