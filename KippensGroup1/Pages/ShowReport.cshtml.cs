@@ -19,6 +19,8 @@ namespace KippensGroup1
 
         public List<Volunteer> Volunteers { get; set; } // List of all records in volunteer table
 
+        public List<User> Users { get; set; }
+
         public void OnGet()
         {
 
@@ -31,6 +33,7 @@ namespace KippensGroup1
             Donations = donAccess.GetDonations(start, end);
             Transactions = donAccess.GetTransactions(start, end);
             Volunteers = donAccess.GetVolunteers();
+            Users = donAccess.GetUsers();
             return Page();
         }
 

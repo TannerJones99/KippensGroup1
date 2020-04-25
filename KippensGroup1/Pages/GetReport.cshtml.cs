@@ -19,7 +19,8 @@ namespace KippensGroup1
 
         public void OnGet()
         {
-         
+
+            System.Diagnostics.Debug.WriteLine(CurrentLogged.getRole());
 
         }
 

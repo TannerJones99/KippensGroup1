@@ -33,7 +33,7 @@ namespace KippensGroup1.Pages
         public IActionResult OnPostDonation()
         {
             username = CurrentLogged.getUsername();
-            if (CurrentLogged.getRole() != 2 || CurrentLogged.getRole() != 3)
+            if (CurrentLogged.getRole() != 2 && CurrentLogged.getRole() != 3)
             {
                 Error = "You are not authorized to fill out a donation";
                 return Page();
@@ -44,7 +44,7 @@ namespace KippensGroup1.Pages
         public IActionResult OnPostTransaction()
         {
             username = CurrentLogged.getUsername();
-            if (CurrentLogged.getRole() != 2 || CurrentLogged.getRole() != 3)
+            if (CurrentLogged.getRole() != 2 && CurrentLogged.getRole() != 3)
             {
                 Error = "You are not authorized to fill out a transaction";
                 return Page();
@@ -55,7 +55,8 @@ namespace KippensGroup1.Pages
         public IActionResult OnPostReport()
         {
             username = CurrentLogged.getUsername();
-            if (CurrentLogged.getRole() != 2 || CurrentLogged.getRole() != 3)
+            System.Diagnostics.Debug.WriteLine(CurrentLogged.getRole());
+            if (CurrentLogged.getRole() != 2 && CurrentLogged.getRole() != 3)
             {
                 Error = "You are not authorized to search for reports";
                 return Page();
