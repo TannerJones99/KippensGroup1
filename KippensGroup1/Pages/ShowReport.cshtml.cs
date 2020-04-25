@@ -16,10 +16,13 @@ namespace KippensGroup1
 
         public List<User> Users { get; set; } // List of all records in user table
 
+
         public void OnGet()
         {
+            GetReportModel grm = new GetReportModel();
             var donAccess = new DatabaseAccess();
-            Donations = donAccess.GetDonations();
+            System.Diagnostics.Debug.WriteLine(grm.StartDate + "----------");
+            Donations = donAccess.GetDonations(grm.StartDate, grm.EndDate);
             Users = donAccess.GetUsers();
             
         }
