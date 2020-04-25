@@ -9,6 +9,7 @@ namespace KippensGroup1
     public class DBHandler
     {
         private string connectionString;
+        private string error;
 
         public DBHandler(string connectionString)
         {
@@ -126,6 +127,11 @@ namespace KippensGroup1
             return "server=localhost; database=kippens; uid=" + user + "; pwd=" + pass+";";
         }
 
+        public string getError()
+        {
+            return this.error;
+        }
+
         
 
 
@@ -139,9 +145,9 @@ namespace KippensGroup1
             {
                 db.Open();
                 reader = cmd.ExecuteReader();
-                db.Close();
             } catch(Exception e)
             {
+                this.error = "Problem query";
                 return null;
             }
 
