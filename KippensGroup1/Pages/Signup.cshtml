@@ -4,32 +4,37 @@
     ViewData["Title"] = "Signup";
 }
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<label asp-for="Error">@Model.Error</label>
-<h2>Signup</h2>
-<form asp-page-handler="signup" method="post">
-    <label>Name: </label>
-    <input name="name" type="text" required="required">
-    <br>
-    <br>
-    <label>Email: </label>
-    <input name="email" type="text" required="required">
-    <br>
-    <br>
-    <label>Password: </label>
-    <input name="pass" type="text" required="required">
-    <br>
-    <br>
-    <label>Number(optional): </label>
-    <input name="name" type="text">
-    <br>
-    <br>
-    <input name="submit" type="submit">
-</form>
 
+<html>
+<body>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <label asp-for="Error">@Model.Error</label>
+    <h2>Signup</h2>
+    <form asp-page-handler="signup" method="post">
+        <label>Name: </label>
+        <input name="name" type="text" required="required">
+        <br>
+        <br>
+        <label>Email: </label>
+        <input name="email" type="text" required="required">
+        <br>
+        <br>
+        <label>Password: </label>
+        <input name="pass" type="text" required="required">
+        <br>
+        <br>
+        <label>Number(optional): </label>
+        <input name="name" type="text">
+        <br>
+        <br>
+        <input name="submit" type="submit">
+    </form>
+
+</body>
+</html>

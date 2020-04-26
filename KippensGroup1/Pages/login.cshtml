@@ -19,8 +19,8 @@
     <label asp-for="Error">@Model.Error</label>
     <br>
     <br />
-    <div class="form">
-    <form asp-page-handler="login" class="form" method="post">
+  
+    <form asp-page-handler="login" method="post">
         <label> Username:</label>
         <input name="user" type="text" required="required">
         <br>
@@ -31,9 +31,9 @@
         <br />
         <input type="submit" name="login" value="Submit">
     </form>
-    </div>
+    
     <br />
-    <form asp-page-handler="signup" class="form" method="post">
+    <form asp-page-handler="signup" method="post">
         <input type="submit" name="signedup" value="Sign up" />
     </form>
 </body>
