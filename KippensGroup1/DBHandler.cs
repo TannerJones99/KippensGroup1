@@ -154,6 +154,18 @@ namespace KippensGroup1
             db.Open();
             cmd.ExecuteReader();
             db.Close();
+
+            string volun = "";
+            volun += "INSERT INTO volunteer(volunteerID, userID, name, role) VALUES ('3', '1', 'Jack Smith', 'Computer Science');";
+            volun += "INSERT INTO volunteer(volunteerID, userID, name, role) VALUES ('1', '2', 'Jake Grisky', 'Chemistry');";
+            volun += "INSERT INTO volunteer(volunteerID, userID, name, role) VALUES ('2', '2', 'Amanda Raven', 'Biology');";
+            volun += "INSERT INTO volunteer(volunteerID, userID, name, role) VALUES ('4', '1', 'Henry Jones', 'Math');";
+            volun += "INSERT INTO volunteer(volunteerID, userID, name, role) VALUES ('5', '1', 'Josh Jones', 'English');";
+
+            cmd = new MySqlCommand("USE kippens; " + volun, db);
+            db.Open();
+            cmd.ExecuteReader();
+            db.Close();
         }
 
 

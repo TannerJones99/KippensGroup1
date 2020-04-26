@@ -117,6 +117,36 @@
             }
         }
     </table>
+    <br />
+    <br />
+    <br />
+    <h1 style="text-align:center">Volunteer Report</h1>
+    <table id="tbl" align="center" border="1">
+        <tr>
+            <th width="100px">VolunteerID</th>
+            <th width="100px">userID</th>
+            <th width="100px">Name</th>
+            <th width="100px">Role</th>
+        </tr>
+
+        @{
+            for (int i = 0; i < Model.Volunteers.Count; i++)
+            {
+                <tr>
+                    <td>@Model.Volunteers.ElementAt(i).volunteerID</td>
+
+                    <td>@Model.Volunteers.ElementAt(i).userID</td>
+
+                    <td>@Model.Volunteers.ElementAt(i).name</td>
+
+                    <td>@Model.Volunteers.ElementAt(i).role</td>
+                </tr>
+            }
+        }
+    </table>
+    <br />
+    <br />
+    <br />
 </body>
 </html>
 
