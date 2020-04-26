@@ -140,7 +140,7 @@ namespace KippensGroup1
             db.Close();
 
             string tut = "";
-            tut += "INSERT INTO tutors(userID, subject) VALUES ('3', 'Computer scinece')";
+            tut += "INSERT INTO tutors(userID, subject) VALUES ('3', 'Computer scinece');";
 
             cmd = new MySqlCommand("USE kippens; " + tut, db);
             db.Open();
@@ -148,7 +148,7 @@ namespace KippensGroup1
             db.Close();
 
             string cou = "";
-            cou += "INSERT INTO counselors(userID) VALUES ('4')";
+            cou += "INSERT INTO counselors(userID) VALUES ('4');";
 
             cmd = new MySqlCommand("USE kippens; " + cou, db);
             db.Open();

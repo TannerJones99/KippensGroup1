@@ -1,0 +1,48 @@
+﻿@page
+@model KippensGroup1.Pages.TutorsModel
+@{
+    ViewData["Title"] = "Tutors";
+}
+
+<html>
+
+<body>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h3> Welcome to our Counseling page. If you wish to find out more information or sign up for counseling, contact one of the counselers below.</h3>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name:</th>
+                <th>Email:</th>
+                <th>Subject:</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var tutor in Model.tutors)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(Model => tutor.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(Model => tutor.email)
+                </td>
+                <td>
+                    @Html.DisplayFor(Model => tutor.subject)
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+
+</body>
+</html>
+
