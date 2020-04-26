@@ -88,7 +88,7 @@ namespace KippensGroup1.Pages
                 return false;
             }
 
-            connection.Close();
+            
             Error = "Valid email";
             return true;
         }
