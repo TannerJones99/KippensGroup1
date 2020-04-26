@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using MySql.Data.MySqlClient;
 
 namespace KippensGroup1.Pages
 {
@@ -62,6 +63,32 @@ namespace KippensGroup1.Pages
                 return Page();
             }
             return Redirect("GetReport");
+        }
+
+        public IActionResult OnPostPromote(string user)
+        {
+            if (CurrentLogged.getRole() == 1)
+            {
+                Error = "You are not authorized to promote users";
+                return Page();
+            }
+            DBHandler db = new DBHandler(DBHandler.connectionStringBuilder(MysqlLogins.getMySqlUser(), MysqlLogins.getMySqlPass()));
+            string query = "SELECT username FROM user WHERE username='" + user + "';";
+            MySqlDataReader reader = db.performQuery(query);
+            Error = "Unknown error occured";
+            if (!reader.HasRows)
+            {
+                Error = "No user found";
+            }
+            else
+            {
+                query = "UPDATE user SET roleID = '" + CurrentLogged.getRole() + "' WHERE username='" + user + "';";
+                reader = db.performQuery(query);
+                Error = "Update successful";
+            }
+            
+            username= CurrentLogged.getUsername();
+            return Page();
         }
     }
 }

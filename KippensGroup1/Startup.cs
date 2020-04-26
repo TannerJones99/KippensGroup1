@@ -21,7 +21,8 @@ namespace KippensGroup1
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-            getLoginInfo();
+            uid = MysqlLogins.getMySqlUser();
+            pwd = MysqlLogins.getMySqlPass();
             connectionString ="server=localhost; uid=" + uid + "; pwd=" + pwd + ";";
             
         }
@@ -69,21 +70,6 @@ namespace KippensGroup1
             app.UseMvc();
         }
 
-        public void getLoginInfo()
-        {
-            string filename = "mysqlLogin.txt";
-            string[] lines = System.IO.File.ReadAllLines(".\\Data files\\" + filename);
-            foreach(string line in lines)
-            {
-                if (line[0] == 'u')
-                {
-                    this.uid = line.Remove(0, 4);
-                }
-                else if(line[0] == 'p')
-                {
-                    this.pwd = line.Remove(0, 4);
-                }
-            }
-        }
+        
     }
 }

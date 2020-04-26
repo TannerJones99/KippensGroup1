@@ -30,7 +30,7 @@ namespace KippensGroup1.Pages
                 return Page();
             }
             else {
-                DBHandler db = new DBHandler(DBHandler.connectionStringBuilder("harry", "elbomonkey"));
+                DBHandler db = new DBHandler(DBHandler.connectionStringBuilder(MysqlLogins.getMySqlUser(), MysqlLogins.getMySqlPass()));
                 string query = "INSERT INTO donation(name, description, userID, time, roleID, QUANTITY) VALUES ('" + name + "', '" + description + "', '" + CurrentLogged.getID() + "', '" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "', '" + CurrentLogged.getRole() + "', '" + quantityValue + "');";
                 MySqlDataReader reader;
                

@@ -25,7 +25,7 @@ namespace KippensGroup1.Pages
         public IActionResult OnPostLogin(string user, string pass)
         {
             string query = "SELECT username, password, userID, roleID FROM user WHERE username='"+user+"' AND password='"+pass+"';";
-            DBHandler db = new DBHandler(DBHandler.connectionStringBuilder("harry", "elbomonkey")); // change to username and password later
+            DBHandler db = new DBHandler(DBHandler.connectionStringBuilder(MysqlLogins.getMySqlUser(), MysqlLogins.getMySqlPass())); // change to username and password later
             MySqlDataReader reader;
             try
             {
