@@ -73,6 +73,21 @@ namespace KippensGroup1
             cmd.ExecuteReader();
             db.Close();
 
+            cmd = new MySqlCommand("USE kippens; create table Tutors(tutorID int NOT NULL AUTO_INCREMENT,userID int NOT NULL,subject VARCHAR(50) NOT NULL,PRIMARY KEY(tutorID),FOREIGN KEY(userID) REFERENCES User(userID));", db);
+            db.Open();
+            cmd.ExecuteReader();
+            db.Close();
+
+            cmd = new MySqlCommand("USE kippens; create table Counselors(CounselorID int NOT NULL AUTO_INCREMENT,UserID int NOT NULL,PRIMARY KEY(CounselorID),FOREIGN KEY(UserID) REFERENCES User(userID));", db);
+            db.Open();
+            cmd.ExecuteReader();
+            db.Close();
+
+            cmd = new MySqlCommand("USE kippens; create table Students(studentID int NOT NULL AUTO_INCREMENT,name varchar(50) NOT NULL,gender varchar(50) NOT NULL,address varchar(200) NOT NULL,grade varchar(50) NOT NULL,eContact varchar(50) NOT NULL,tutorID int NOT NULL,PRIMARY KEY(studentID),FOREIGN KEY(tutorID) REFERENCES tutors(tutorID));", db);
+            db.Open();
+            cmd.ExecuteReader();
+            db.Close();
+
             insertData(db);
         }
 
@@ -82,6 +97,8 @@ namespace KippensGroup1
             roles += "INSERT INTO role(Name, description) VALUES ('general user', 'Basic level for an account');";
             roles += "INSERT INTO role(Name, description) VALUES ('Food Pantry', 'Level for the food pantry workers and volenteers');";
             roles += "INSERT INTO role(Name, description) VALUES ('Clothing Closet', 'Level for the clothing closet workers and volenteers');";
+            roles += "INSERT INTO role(Name, description) VALUES ('Tutoring', 'Level for the tutors and volenteers');";
+            roles += "INSERT INTO role(Name, description) VALUES ('Counselors', 'Level for the Counselors and volenteers');";
             MySqlCommand cmd = new MySqlCommand("USE kippens; " + roles, db);
             db.Open();
             cmd.ExecuteReader();
@@ -90,6 +107,8 @@ namespace KippensGroup1
             string admins = "";
             admins += "INSERT INTO user(name, username, email, password, roleID) VALUES ('closet admin', 'cadmin', 'cadmin@kippens.org', 'admin', 3);";
             admins += "INSERT INTO user(name, username, email, password, roleID) VALUES ('pantry admin', 'padmin', 'padmin@kippens.org', 'admin', 2);";
+            admins += "INSERT INTO user(name, username, email, password, roleID) VALUES ('tutor admin', 'tadmin', 'tadmin@kippens.org', 'test', 4);";
+            admins += "INSERT INTO user(name, username, email, password, roleID) VALUES ('Counselor Admin', 'test', 'couadmin@kippens.org', 'test', 5);";
             admins += "INSERT INTO user(name, username, email, password, roleID) VALUES ('test user', 'test', 'test@kippens.org', 'test', 1);";
             cmd = new MySqlCommand("USE kippens; " + admins, db);
             db.Open();
@@ -116,6 +135,22 @@ namespace KippensGroup1
             don += "INSERT INTO donation(time, roleID, name, description, userID, QUANTITY) VALUES ('1997-09-11', '2', 'fifth', 'five donation', '2', '50');";
 
             cmd = new MySqlCommand("USE kippens; " + don, db);
+            db.Open();
+            cmd.ExecuteReader();
+            db.Close();
+
+            string tut = "";
+            tut += "INSERT INTO tutors(userID, subject) VALUES ('3', 'Computer scinece')";
+
+            cmd = new MySqlCommand("USE kippens; " + tut, db);
+            db.Open();
+            cmd.ExecuteReader();
+            db.Close();
+
+            string cou = "";
+            cou += "INSERT INTO counselors(userID) VALUES ('4')";
+
+            cmd = new MySqlCommand("USE kippens; " + cou, db);
             db.Open();
             cmd.ExecuteReader();
             db.Close();
