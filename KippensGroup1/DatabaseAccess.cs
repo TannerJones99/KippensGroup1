@@ -14,7 +14,7 @@ namespace KippensGroup1
     {
         private readonly MySqlConnection _conn;
 
-        private string _connectionString = DBHandler.connectionStringBuilder("harry", "elbomonkey");
+        private string _connectionString = DBHandler.connectionStringBuilder(MysqlLogins.getMySqlUser(), MysqlLogins.getMySqlPass());
         public DatabaseAccess()
         {
 

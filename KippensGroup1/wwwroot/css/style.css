@@ -187,3 +187,8 @@ h2, p {
 	margin: 5000;
 
 }
+
+.form{
+    display: block;
+    margin-left: 100px;
+}

@@ -69,7 +69,7 @@ namespace KippensGroup1.Pages
             }
 
             string query = "SELECT email FROM user WHERE email='"+email+"';";
-            DBHandler db = new DBHandler(DBHandler.connectionStringBuilder("harry", "elbomonkey"));
+            DBHandler db = new DBHandler(DBHandler.connectionStringBuilder(MysqlLogins.getMySqlUser(), MysqlLogins.getMySqlPass()));
             MySqlDataReader reader;
             MySqlConnection connection = null;
             try

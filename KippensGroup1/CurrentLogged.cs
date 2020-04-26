@@ -48,7 +48,7 @@ namespace KippensGroup1
         {
             string[] splited;
             splited = getLoginInfo().Split(',');
-            DBHandler db = new DBHandler(DBHandler.connectionStringBuilder(splited[0], splited[1]));
+            DBHandler db = new DBHandler(DBHandler.connectionStringBuilder(MysqlLogins.getMySqlUser(), MysqlLogins.getMySqlPass()));
             splited = null;
             string query = "SELECT password FROM user WHERE userID='"+userID+"';";
             MySqlDataReader reader = db.performQuery(query);
