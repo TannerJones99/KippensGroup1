@@ -49,29 +49,30 @@
     <br>
     <br>
     <br>
-    <h3> Welcome to our Counseling page. If you wish to find out more information or sign up for counseling, contact one of the counselers below.</h3>
-    
-    <table align="center" id="tbl" border="1">
-        <thead>
-            <tr>
-                <th>Name:</th>
-                <th>Email:</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var coun in Model.counselers)
-            {
-            <tr>
-                <td>
-                    @Html.DisplayFor(Model => coun.name)
-                </td>
-                <td>
-                    @Html.DisplayFor(Model => coun.email)
-                </td>
-            </tr>
-            }
-        </tbody>
-    </table>
+    <div id="account">
+        <h3> Welcome to our Counseling page. If you wish to find out more information or sign up for counseling, contact one of the counselers below.</h3>
 
+        <table align="center" id="tbl" border="1">
+            <thead>
+                <tr>
+                    <th>Name:</th>
+                    <th>Email:</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var coun in Model.counselers)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(Model => coun.name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(Model => coun.email)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>

@@ -46,7 +46,7 @@ namespace KippensGroup1.Pages
                 {
                     reader.Read();
                     CurrentLogged.login(reader.GetString("username"), reader.GetInt32("userID"), reader.GetInt32("roleID"));
-                    return Redirect("Index");
+                    return Redirect("Account");
                 }
             }   
             catch (Exception e)

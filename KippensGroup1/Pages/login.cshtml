@@ -15,27 +15,29 @@
     <br>
     <br>
     <br>
-    <h2> Login: </h2>
-    <label asp-for="Error">@Model.Error</label>
-    <br>
-    <br />
-  
-    <form asp-page-handler="login" method="post">
-        <label> Username:</label>
-        <input name="user" type="text" required="required">
+    <div id="account">
+        <h2> Login: </h2>
+        <label asp-for="Error">@Model.Error</label>
         <br>
-        <br>
-        <label> Password:</label>
-        <input name="pass" type="password" required="required">
         <br />
+
+        <form asp-page-handler="login" method="post">
+            <label> Username:</label>
+            <input name="user" type="text" required="required">
+            <br>
+            <br>
+            <label> Password:</label>
+            <input name="pass" type="password" required="required">
+            <br />
+            <br />
+            <input type="submit" name="login" value="Submit">
+        </form>
+
         <br />
-        <input type="submit" name="login" value="Submit">
-    </form>
-    
-    <br />
-    <form asp-page-handler="signup" method="post">
-        <input type="submit" name="signedup" value="Sign up" />
-    </form>
+        <form asp-page-handler="signup" method="post">
+            <input type="submit" name="signedup" value="Sign up" />
+        </form>
+    </div>
 </body>
 </html>
 

@@ -6,47 +6,49 @@
 
 <html>
 <body>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <h2>Account</h2>
-    <br>
-    <br>
-    <label asp-for="username">@Model.username</label>
-    <br>
-    <br>
-    <label asp-for="Error">@Model.Error</label>
-    <br>
-    <br>
-    <form asp-page-handler="report" method="post">
-        <input type="submit" value="Search Reports" />
-    </form>
-    <br />
-    <br />
-    <form asp-page-handler="donation" method="post">
-        <input type="submit" value="Fill out a donation" />
-    </form>
-    <br />
-    <br />
-    <form asp-page-handler="transaction" method="post">
-        <input type="submit" value="Fill out a transaction" />
-    </form>
-    <br />
-    <br />
-    <form asp-page-handler="promote" method="post">
-        <label>Type in username of of user you wish to promote</label><br /><br />
-        <input type="text" name="user" /><br /><br />
-        <input type="submit" value="Promote user" />
-    </form>
-    <br />
-    <br />
-    <form asp-page-handler="logout" method="post">
-        <input type="submit" value="Logout" />
-    </form>
 
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div id="account">
+        <h2>Account</h2>
+        <br>
+        <br>
+        <label asp-for="username">@Model.username</label>
+        <br>
+        <br>
+        <label asp-for="Error">@Model.Error</label>
+        <br>
+        <br>
+        <form asp-page-handler="report" method="post">
+            <input type="submit" value="Search Reports" />
+        </form>
+        <br />
+        <br />
+        <form asp-page-handler="donation" method="post">
+            <input type="submit" value="Fill out a donation" />
+        </form>
+        <br />
+        <br />
+        <form asp-page-handler="transaction" method="post">
+            <input type="submit" value="Fill out a transaction" />
+        </form>
+        <br />
+        <br />
+        <form asp-page-handler="promote" method="post">
+            <label>Type in username of of user you wish to promote</label><br /><br />
+            <input type="text" name="user" /><br /><br />
+            <input type="submit" value="Promote user" />
+        </form>
+        <br />
+        <br />
+        <form asp-page-handler="logout" method="post">
+            <input type="submit" value="Logout" />
+        </form>
+    </div>
 </body>
 </html>

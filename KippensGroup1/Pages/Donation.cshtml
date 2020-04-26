@@ -14,23 +14,24 @@
 <br>
 <br>
 <br>
-<h2>Donation</h2>
-<label asp-for="Error">@Model.Error</label>
-<form asp-page-handler="donation" post="method">
-    <label>Name: </label>
-    <input type="text" name="name" required="required" />
-    <br>
-    <br>
-    <label>Description of Donation: </label>
-    <input type="text" name="description" required="required" />
-    <br>
-    <br>
-    <label>Quantity: </label>
-    <input type="text" name="quantity" required="required" />
-    <br>
-    <br>
-    <input type="submit" name="submit" value="submit" />
-</form>
-
+<div id="account">
+    <h2>Donation</h2>
+    <label asp-for="Error">@Model.Error</label>
+    <form asp-page-handler="donation" post="method">
+        <label>Name: </label>
+        <input type="text" name="name" required="required" />
+        <br>
+        <br>
+        <label>Description of Donation: </label>
+        <input type="text" name="description" required="required" />
+        <br>
+        <br>
+        <label>Quantity: </label>
+        <input type="text" name="quantity" required="required" />
+        <br>
+        <br>
+        <input type="submit" name="submit" value="submit" />
+    </form>
+</div>
 </body>
 </html>

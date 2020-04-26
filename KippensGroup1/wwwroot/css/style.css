@@ -22,7 +22,10 @@ body {
   place-items: center;
 }
 
-
+#account {
+    text-align:center;
+    list-style-position:inside;
+}
 
 header {
   background: var(--background);

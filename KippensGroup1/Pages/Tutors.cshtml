@@ -49,34 +49,35 @@
     <br>
     <br>
     <br>
-    <h3> Welcome to our Tutoring page. If you wish to find out more information or sign up for tutoring, contact one of the tutors below.</h3>
+    <div id="account">
+        <h3> Welcome to our Tutoring page. If you wish to find out more information or sign up for tutoring, contact one of the tutors below.</h3>
 
-    <table align="center" id="tbl" border="1">
-        <thead>
-            <tr>
-                <th>Name:</th>
-                <th>Email:</th>
-                <th>Subject:</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var tutor in Model.tutors)
-            {
-            <tr>
-                <td>
-                    @Html.DisplayFor(Model => tutor.name)
-                </td>
-                <td>
-                    @Html.DisplayFor(Model => tutor.email)
-                </td>
-                <td>
-                    @Html.DisplayFor(Model => tutor.subject)
-                </td>
-            </tr>
-            }
-        </tbody>
-    </table>
-
+        <table align="center" id="tbl" border="1">
+            <thead>
+                <tr>
+                    <th>Name:</th>
+                    <th>Email:</th>
+                    <th>Subject:</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var tutor in Model.tutors)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(Model => tutor.name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(Model => tutor.email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(Model => tutor.subject)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
 
