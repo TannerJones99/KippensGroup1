@@ -33,13 +33,13 @@ namespace KippensGroup1.Pages
             createUsername(email);
             getLoginInfo();
             DBHandler db = new DBHandler(DBHandler.connectionStringBuilder(uid, pwd));
-            MySqlConnection connection = null;
+            
             string query = "INSERT INTO user(name, username, email, password, roleID) VALUES ('"+name+"', '"+username+"', '"+email+"', '"+pass+"', 1);";
             db.performQuery(query);
-            connection.Close();
+            
             query = "CREATE USER '"+username+"'@'localhost' IDENTIFIED BY '"+pass+"'; GRANT SELECT ON kippens TO '"+username+ "'@'localhost'; FLUSH PRIVILEGES;";
             db.performQuery(query);
-            connection.Close();
+            
 
             return Redirect("Index");
         }
@@ -71,14 +71,14 @@ namespace KippensGroup1.Pages
             string query = "SELECT email FROM user WHERE email='"+email+"';";
             DBHandler db = new DBHandler(DBHandler.connectionStringBuilder(MysqlLogins.getMySqlUser(), MysqlLogins.getMySqlPass()));
             MySqlDataReader reader;
-            MySqlConnection connection = null;
+            
             try
             {
                 reader = db.performQuery(query);
                 if (reader.HasRows)
                 {
                     Error = "Username already in use";
-                    connection.Close();
+                    
                     return false;
                 }
             }
@@ -88,7 +88,7 @@ namespace KippensGroup1.Pages
                 return false;
             }
 
-            connection.Close();
+            
             Error = "Valid email";
             return true;
         }

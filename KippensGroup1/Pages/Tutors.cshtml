@@ -1,0 +1,82 @@
+﻿@page
+@model KippensGroup1.Pages.TutorsModel
+@{
+    ViewData["Title"] = "Tutors";
+}
+
+<html>
+<head>
+    <style>
+        h1 {
+            align-content: center;
+        }
+
+        #tbl {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 70%;
+        }
+
+            #tbl td, #customers th {
+                border: 1px solid #ddd;
+                padding: 8px;
+            }
+
+            #tbl tr:nth-child(even) {
+                background-color: white;
+            }
+
+            #tbl tr:hover {
+                background-color: whitesmoke;
+            }
+
+            #tbl th {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: left;
+                background-color: rgb(0, 0, 128);
+                color: white;
+            }
+    </style>
+</head>
+
+<body>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h3> Welcome to our Tutoring page. If you wish to find out more information or sign up for tutoring, contact one of the tutors below.</h3>
+
+    <table align="center" id="tbl" border="1">
+        <thead>
+            <tr>
+                <th>Name:</th>
+                <th>Email:</th>
+                <th>Subject:</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var tutor in Model.tutors)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(Model => tutor.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(Model => tutor.email)
+                </td>
+                <td>
+                    @Html.DisplayFor(Model => tutor.subject)
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+
+</body>
+</html>
+
